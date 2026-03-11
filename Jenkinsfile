@@ -18,7 +18,7 @@ node {
 
     // Testing
     stage("Testing"){
-        withEnv(['DOCKER_HOST=tcp://172.24.96.1:2375']) {
+        withEnv(['DOCKER_HOST=tcp://172.29.115.193']) {
             docker.image('ubuntu:22.04').inside('-u root') {
                 sh 'echo "Ini adalah test"'
             }

@@ -3,7 +3,7 @@ node {
 
     // deploy env dev
     stage("Build"){
-        withEnv(['DOCKER_HOST=tcp://172.29.115.193:2375']) {
+        withEnv(['DOCKER_HOST=tcp://172.29.115.193']) {
             docker.image('php:8.2-cli').inside('-u root') {
                 sh '''
                     apt-get update && apt-get install -y libzip-dev libpng-dev

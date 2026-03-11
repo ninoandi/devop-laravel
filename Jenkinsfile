@@ -17,7 +17,7 @@ node {
         sh 'docker pull shippingdocker/php-composer:8.2 || true'
         
         // HAPUS volume mount dari inside() karena sudah di-mount di level container
-        docker.image('shippingdocker/php-composer:7.4').inside('-u root') {
+        docker.image('shippingdocker/php-composer:8.2').inside('-u root') {
             sh '''
                 echo "Inside composer container..."
                 rm -f composer.lock

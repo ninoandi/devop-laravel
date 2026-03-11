@@ -14,7 +14,7 @@ node {
         sh 'docker --version'
         
         // Pull image terlebih dahulu
-        sh 'docker pull shippingdocker/php-composer:7.4 || true'
+        sh 'docker pull shippingdocker/php-composer:8.2 || true'
         
         // HAPUS volume mount dari inside() karena sudah di-mount di level container
         docker.image('shippingdocker/php-composer:7.4').inside('-u root') {

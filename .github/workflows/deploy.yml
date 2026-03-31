@@ -34,9 +34,9 @@ jobs:
           echo "Artisan file exists:"
           ls -la artisan || echo "artisan not found"
       
-      - name: Sync 
+      - name: Sync ke Server
         env: 
-          dest: "ubuntu@54.251.5.36:~/prod.kelasdevops.xyz/" 
+          DEST: "USERNAME@IP_SERVER_ANDA:~/PATH_TUJUAN/"  # ← GANTI INI
         run: | 
           echo "${{secrets.DEPLOY_KEY}}" > ~/deploy_key 
           chmod 600 ~/deploy_key 
@@ -48,4 +48,4 @@ jobs:
             --exclude storage/ \
             --exclude .env \
             --exclude vendor/ \
-            "${{ github.workspace }}/" "${{env.dest}}"
+            "${{ github.workspace }}/" "${{env.DEST}}"

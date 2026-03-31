@@ -28,7 +28,7 @@ jobs:
       
       - name: Sync 
         env: 
-          dest: "ubuntu@54.251.5.36:~/prod.kelasdevops.xyz/" 
+          dest: "ubuntu@54.251.5.36:/var/www/html/laravel-app/"
         run: | 
           echo "${{secrets.DEPLOY_KEY}}" > ~/deploy_key 
           chmod 600 ~/deploy_key 

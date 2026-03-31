@@ -11,12 +11,21 @@ jobs:
     steps: 
       - name: Checkout 
         uses: actions/checkout@v2 
-      - uses: shivammathur/setup-php@v2 
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2 
         with: 
-          php-version: 8.2 
-      - uses: ramsey/composer-install@v1 
+          php-version: 8.2
+          extensions: mbstring, pdo, pdo_mysql, zip, fileinfo, curl, xml
+      
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1 
         with: 
-          composer-options: "" 
+          composer-options: "--ignore-platform-reqs"
+      
+      - name: Install rsync
+        run: sudo apt-get update && sudo apt-get install -y rsync
+      
       - name: Sync 
         env: 
           dest: "ubuntu@54.251.5.36:~/prod.kelasdevops.xyz/" 
